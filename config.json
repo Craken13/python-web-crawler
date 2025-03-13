@@ -1,0 +1,18 @@
+{
+  "country": "YourCountry",
+  "news_sources": [
+    {
+      "name": "Source1",
+      "url": "https://www.source1.com/cyber-crime"
+    },
+    {
+      "name": "Source2",
+      "url": "https://www.source2.com/scams"
+    },
+    {
+      "name": "Source3",
+      "url": "https://www.source3.com/ransomware"
+    }
+  ],
+  "crawl_schedule": "daily"
+}
