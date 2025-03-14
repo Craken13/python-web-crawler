@@ -7,13 +7,14 @@ class WebCrawler:
         self.config = config
         self.sources = config['news_sources']
         self.country = config['country']
+        self.headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'}
 
     def fetch_articles(self):
         articles = []
         for source in self.sources:
-            response = requests.get(source['url'])
+            response = requests.get(source['url'], headers=self.headers)
             if response.status_code == 200:
-                articles.extend(self.parse_articles(response.text, source['parser']))
+                articles.extend(self.parse_articles(response.text, source.get('parser', 'html.parser')))
         return articles
 
     def parse_articles(self, html_content, parser):
